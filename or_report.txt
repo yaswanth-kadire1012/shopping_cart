@@ -1,0 +1,41 @@
+Users 
+	username (PK) 
+	password 
+	name 
+	role 
+
+Product 
+	product_id (PK) 
+	product_name 
+	qty_available 
+	price 
+
+Wallet 
+	username (PK, FK REFERS Users.username on DELETE CASCADE) 
+	balance 
+
+Cart 
+	cart_id (PK) 
+	username (FK REFERS Users.username on DELETE CASCADE) 
+	cart_total 
+	noof_items 
+
+Cart_Items 
+	id (PK) 
+	cart_id (FK REFERS Cart.cart_id on DELETE CASCADE) 
+	product_id (FK REFERS Product.product_id on DELETE CASCADE) 
+	quantity 
+	price 
+
+Orders 
+	order_id (PK) 
+	username (FK REFERS Users.username on DELETE CASCADE) 
+	total_amount 
+	order_date 
+
+Order_Items 
+	id (PK) 
+	order_id (FK REFERS Orders.order_id on DELETE CASCADE) 
+	product_id (FK REFERS Product.product_id on DELETE CASCADE) 
+	quantity 
+	price
